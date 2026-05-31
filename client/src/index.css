@@ -17,9 +17,17 @@
   box-sizing: border-box;
 }
 
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #6c7df0 0%, #8552cc 100%);
+  background-size: 200% 200%;
+  animation: gradientFlow 10s ease infinite;
   min-height: 100vh;
   color: var(--text-main);
   display: flex;
@@ -116,6 +124,11 @@ body {
   gap: 1rem;
 }
 
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Task Item */
 .task-item {
   display: flex;
@@ -127,6 +140,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
   border-left: 6px solid transparent;
+  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .task-item:hover {
@@ -150,11 +164,72 @@ body {
   flex: 1;
 }
 
-.task-checkbox {
-  width: 24px;
-  height: 24px;
+/* Custom Checkbox */
+.custom-checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 36px;
   cursor: pointer;
-  accent-color: var(--success-color);
+  user-select: none;
+  min-height: 24px;
+}
+
+.custom-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 24px;
+  background-color: #f3f4f6;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-checkbox-container:hover input ~ .checkmark {
+  background-color: #e5e7eb;
+  border-color: #d1d5db;
+}
+
+.custom-checkbox-container input:checked ~ .checkmark {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+  animation: checkmarkIn 0.2s ease-in-out forwards;
+}
+
+@keyframes checkmarkIn {
+  0% { transform: scale(0) rotate(45deg); opacity: 0; }
+  100% { transform: scale(1) rotate(45deg); opacity: 1; }
+}
+
+.custom-checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
 }
 
 .task-title {
