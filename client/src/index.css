@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-color: #4f46e5;
-  --primary-hover: #4338ca;
+  --primary-color: #564ee1;
+  --primary-hover: #413aba;
   --bg-color: #f3f4f6;
   --text-main: #1f2937;
-  --text-muted: #6b7280;
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.3);
+  --text-muted: #717181;
+  --container-bg: #ececf3;
   --success-color: #10b981;
-  --danger-color: #ef4444;
+  --danger-color: #f24b4b;
 }
 
 * {
@@ -20,7 +19,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #6c7df0 0%, #8552cc 100%);
   min-height: 100vh;
   color: var(--text-main);
   display: flex;
@@ -36,13 +35,10 @@ body {
 
 /* App Container */
 .app-container {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  padding: 2rem 3rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: var(--container-bg);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .app-header {
@@ -73,17 +69,21 @@ body {
   flex: 1;
   padding: 1rem 1.5rem;
   font-size: 1rem;
-  border: 2px solid transparent;
+  border: none;
   border-radius: 12px;
   background: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
   outline: none;
+  color: var(--text-main);
+}
+
+.task-input::placeholder {
+  color: #a0a0b0;
 }
 
 .task-input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 4px 12px rgba(86, 78, 225, 0.15);
 }
 
 .btn {
@@ -123,20 +123,20 @@ body {
   align-items: center;
   padding: 1.25rem 1.5rem;
   background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
-  border-left: 5px solid transparent;
+  border-left: 6px solid transparent;
 }
 
 .task-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
 }
 
 .task-item.completed {
   border-left-color: var(--success-color);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .task-item.pending {
@@ -176,12 +176,13 @@ body {
 .btn-delete {
   background: var(--danger-color);
   padding: 0.6rem 1.2rem;
-  box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2);
+  box-shadow: 0 4px 8px rgba(242, 75, 75, 0.25);
+  border-radius: 8px;
 }
 
 .btn-delete:hover {
-  background: #dc2626;
-  box-shadow: 0 6px 12px rgba(239, 68, 68, 0.3);
+  background: #e04040;
+  box-shadow: 0 6px 12px rgba(242, 75, 75, 0.35);
 }
 
 /* Status States */
