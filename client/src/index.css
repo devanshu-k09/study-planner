@@ -90,19 +90,19 @@ body {
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 600;
-  color: white;
-  background: var(--primary-color);
+  color: #453c0a;
+  background: #fde047;
   border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 4px 8px rgba(253, 224, 71, 0.4);
 }
 
 .btn:hover {
-  background: var(--primary-hover);
+  background: #facc15;
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 6px 12px rgba(253, 224, 71, 0.6);
 }
 
 .btn:active {
@@ -175,6 +175,7 @@ body {
 
 .btn-delete {
   background: var(--danger-color);
+  color: white;
   padding: 0.6rem 1.2rem;
   box-shadow: 0 4px 8px rgba(242, 75, 75, 0.25);
   border-radius: 8px;
