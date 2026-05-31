@@ -7,7 +7,7 @@
   --text-main: #1f2937;
   --text-muted: #717181;
   --container-bg: #ececf3;
-  --success-color: #10b981;
+  --success-color: #812b70;
   --danger-color: #f24b4b;
 }
 
@@ -208,11 +208,11 @@ body {
   .app-container {
     padding: 1.5rem;
   }
-  
+
   .task-form {
     flex-direction: column;
   }
-  
+
   .btn {
     width: 100%;
   }
