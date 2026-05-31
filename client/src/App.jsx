@@ -86,12 +86,23 @@ function App() {
     }
   };
 
+  const completedCount = tasks.filter(t => t.completed).length;
+  const totalCount = tasks.length;
+
   return (
     <div className="app-container">
       <header className="app-header">
         <h1>Study Planner</h1>
         <p>Organize your learning journey</p>
       </header>
+
+      <div className="task-stats" style={{ textAlign: 'center', marginBottom: '1.5rem', padding: '1rem', backgroundColor: 'var(--card-bg, #f9f9f9)', borderRadius: '8px', border: '1px solid var(--border-color, #eee)' }}>
+        {totalCount > 0 ? (
+          <p style={{ margin: 0 }}>You have completed <strong>{completedCount}</strong> out of <strong>{totalCount}</strong> tasks!</p>
+        ) : (
+          <p style={{ margin: 0 }}>Ready to start studying? Add a task below!</p>
+        )}
+      </div>
 
       {error && <div className="error-message">{error}</div>}
 
